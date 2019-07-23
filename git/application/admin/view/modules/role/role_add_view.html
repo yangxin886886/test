@@ -1,0 +1,105 @@
+
+
+<script>
+    var is_role = false; //是否添加了角色：主要添加角色后才能执行后续操作
+    layui.config({
+        base: '__PUBLIC__/layuiadmin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index','admin','form','tree','util'], function(){
+        var $ = layui.$
+            ,form = layui.form
+            ,admin = layui.admin
+            ,tree = layui.tree
+            ,util = layui.util;
+
+        form.on('submit(*)', function(data){
+            var add_auth = "{:url('Role/roleAdd')}";
+
+            var checkedData = tree.getChecked('demoId1');
+            data.field.menu_id = getIdList(checkedData); //权限列表
+
+            admin.req({
+               url:add_auth,
+               data:data.field,
+               done:function (res) {
+                   layer.msg('成功');
+               } 
+            });
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+        var data = null;
+        admin.req({
+            url:"{:url('Role/roleMenuAuth')}",
+            data:{},
+            done:function (res) {
+
+                var data = res.data;
+                tree.render({
+                    elem: '#menu_auth'
+                    ,data: data
+                    ,showCheckbox: true  //是否显示复选框
+                    ,id: 'demoId1'
+                    ,isJump: true //是否允许点击节点时弹出新窗口跳转
+                    ,click: function(obj){
+
+                    }
+                });
+
+            },
+
+        });
+
+        
+        function getIdList(arr){
+            var idList = "";
+            arr.forEach(function(item1,index1){
+                if(typeof(item1['id']) != 'undefined'){
+                    idList += item1['id'] + ",";
+
+                    if(typeof(item1['children']) != 'undefined' ){
+                        item1['children'].forEach(function(item2, index2){
+                            idList += item2['id'] + ",";
+
+                            if(typeof(item2['children']) != 'undefined'){
+
+                                item2['children'].forEach(function (item3, index3) {
+                                    idList += item3['id'] + ",";
+                                });
+                            }
+                        })
+                    }
+                }
+            })
+            return idList;
+        }
+        
+
+
+    })
+    //添加角色
+    // function add_role() {
+    //     var role_name = $('#role_name').val();
+    //     var add_role_url = "{:url('Role/roleAdd')}";
+    //     layui.config({
+    //         base: '__PUBLIC__/layuiadmin/' //静态资源所在路径
+    //     }).extend({
+    //         index: 'lib/index' //主入口模块
+    //     }).use(['index', 'form'], function(){
+    //         var $ = layui.$
+    //             ,form = layui.form
+    //             ,admin = layui.admin;
+    //
+    //         admin.req({
+    //             url:add_role_url,
+    //             data:{name:role_name},
+    //             done: function (res) {
+    //                 layer.msg('成功');
+    //             }
+    //         });
+    //     })
+    // }
+</script>
+
+

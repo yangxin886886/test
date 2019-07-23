@@ -1,0 +1,51 @@
+<script>
+    layui.config({
+        base: '__PUBLIC__/layuiadmin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'form'], function(){
+        var $ = layui.$
+            ,form = layui.form
+            ,admin = layui.admin;
+
+        form.on('submit(*)', function(data){
+            console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+            var url = "{:url('Menu/menuAdd')}"
+            admin.req({
+                url:url
+                ,data:data.field
+                ,done:function (res) {
+                    layer.msg('成功');
+                }
+            });
+
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+        form.on('select(level)', function(data){
+            var fid = $('#fid');//子菜单select
+            if(data.value == 1){
+                fid.find('option').remove(); //清空
+                form.render(); //更新表单
+                return false;
+            }
+            var url = "{:url('Menu/levelGetMenu')}";
+            admin.req({
+                url: url
+                ,data: {'level':data.value}
+                ,done: function(res){
+                    console.log(res);
+                    fid.find('option').remove(); //清空
+                    res.data.forEach(function (val, index, arr) {
+                        fid.append("<option value='"+ val.id +"' >"+ val.name +"</option>");
+                    });
+                    form.render(); //更新表单
+                },
+                complete:function (res) {
+
+                }
+            });
+        });
+
+    })
+</script>

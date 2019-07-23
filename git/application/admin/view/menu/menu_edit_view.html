@@ -1,0 +1,82 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <include file="public/head_resources" />
+</head>
+<body>
+
+<div class="layui-form" lay-filter="layuiadmin-form-admin" id="layuiadmin-form-admin" style="padding: 20px 30px 0 0;">
+
+    <input name="id" value="{$menu.id}" type="hidden">
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择级别</label>
+        <div class="layui-input-inline">
+            <select name="level" lay-verify="" lay-filter="level" lay-search="">
+                <option value="1" <if condition="$menu.level eq 1">selected</if> >一级菜单</option>
+                <option value="2" <if condition="$menu.level eq 2">selected</if> >二级菜单</option>
+                <option value="3" <if condition="$menu.level eq 3">selected</if>  >三级菜单</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择父菜单</label>
+        <div class="layui-input-inline">
+            <select name="fid" lay-verify="" id="fid" lay-filter="fid" lay-search="">
+                <option value="{$fid_find.id}">{$fid_find.name}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">菜单名称</label>
+        <div class="layui-input-inline">
+            <input type="text" name="name" value="{$menu.name}" lay-verify="required" placeholder="请输入菜单名称" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">sort</label>
+        <div class="layui-input-inline">
+            <input type="text" name="sort"  value="{$menu.sort}" lay-verify="number"  placeholder="1-20菜单位置" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">icon</label>
+        <div class="layui-input-inline">
+            <input type="text" name="icon"  value="{$menu.icon}" placeholder="layui图标" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">ctl</label>
+        <div class="layui-input-inline">
+            <input type="text" name="ctl"  value="{$menu.ctl}" placeholder="控制器名称" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">act</label>
+        <div class="layui-input-inline">
+            <input type="text" name="act" value="{$menu.act}" placeholder="动作名称" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item layui-hide">
+        <input type="button" lay-submit lay-filter="*" id="LAY-user-back-submit" value="确认">
+    </div>
+</div>
+
+<include file="public/bottom_resources" />
+<include file="modules/menu/menu_edit_view" />
+</body>
+</html>

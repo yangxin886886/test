@@ -1,0 +1,42 @@
+
+<ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
+    <volist name="menu" id="vo">
+        <li  class="layui-nav-item " cursor="pointer">
+            <a href="javascript:;" lay-tips="{$vo.name}" lay-direction="2">
+                <i class="layui-icon {$vo.icon}"></i>
+                <cite>{$vo.name}</cite>
+            </a>
+            <dl class="layui-nav-child">
+                <if condition="isset($vo.children)">
+                    <volist name="vo.children" id="voo">
+                        <!--三级菜单-->
+                        <if condition="isset($voo.children)">
+                            <dd >
+                                <a href="javascript:;">
+                                    <cite>{$voo.name}</cite>
+                                </a>
+
+                                <dl class="layui-nav-child">
+                                    <volist name="voo.children" id="v">
+                                        <dd > <a href="{:url($voo.ctl .'/'. $voo.act)}" target="demo_iframe">{$v.name}</a></dd>
+                                    </volist>
+                                </dl>
+
+                            </dd>
+                        <!--二级菜单-->
+                        <else/>
+                            <dd>
+                                <i class="layui-icon {$voo.icon}"></i>
+
+                                <a href="{:url($voo.ctl .'/'. $voo.act)}" target="demo_iframe">{$voo.name}</a>
+                            </dd>
+                        </if>
+                    </volist>
+                </if>
+            </dl>
+        </li>
+    </volist>
+</ul>
+
+
+

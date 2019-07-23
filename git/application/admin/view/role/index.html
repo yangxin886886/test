@@ -1,0 +1,47 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <include file="public/head_resources" />
+</head>
+<body>
+
+  <div class="layui-fluid">   
+    <div class="layui-card">
+      <div class="layui-form layui-card-header layuiadmin-card-header-auto">
+        <div class="layui-form-item">
+          <div class="layui-inline">
+            角色筛选
+          </div>
+          <div class="layui-inline">
+            <select name="role_select" lay-filter="role_select">
+              <option value="0">全部角色</option>
+              <volist name="role" id="vo">
+                <option value="{$vo.id}">{$vo.name}</option>
+              </volist>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="layui-card-body">
+        <div style="padding-bottom: 10px;">
+<!--          <button class="layui-btn layuiadmin-btn-role" data-type="batchdel">删除</button>-->
+          <button class="layui-btn layuiadmin-btn-role" data-type="add">添加</button>
+        </div>
+      
+        <table id="roleIndex" lay-filter="roleIndex"></table>
+
+        <script type="text/html" id="table_curd">
+          <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i>编辑</a>
+          <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon layui-icon-delete"></i>删除</a>
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <include file="public/bottom_resources" />
+  <include file="modules/role/index" />
+</body>
+</html>
+
