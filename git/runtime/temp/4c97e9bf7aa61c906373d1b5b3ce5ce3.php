@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\user\index.html";i:1563447597;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1561965611;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\user\index.html";i:1563447597;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <link rel="stylesheet" href="/public/layuiadmin/layui/css/layui.css" media="all">
 <link rel="stylesheet" href="/public/layuiadmin/style/admin.css" media="all">
+<link rel="stylesheet" href="/public/layuiadmin/style/template.css" media="all">
   <link rel="stylesheet" href="/public/layuiadmin/style/login.css" media="all">
 </head>
 <body>

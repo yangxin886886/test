@@ -4,8 +4,9 @@ use think\Validate;
 use think\Controller;
 class Test extends Controller {
     public function index(){
-      echo  $_SERVER['HTTP_HOST'];
+        return $this->fetch();
     }
+    public function test(){
 
-
+    }
 }

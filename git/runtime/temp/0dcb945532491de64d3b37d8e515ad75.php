@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\venue\venue_style.html";i:1563937236;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 
 
 <!DOCTYPE html>
@@ -8,7 +9,9 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <include file="public/head_resources" />
+  <link rel="stylesheet" href="/public/layuiadmin/layui/css/layui.css" media="all">
+<link rel="stylesheet" href="/public/layuiadmin/style/admin.css" media="all">
+<link rel="stylesheet" href="/public/layuiadmin/style/template.css" media="all">
 </head>
 <body>
 
@@ -17,8 +20,8 @@
 
 <div class="layui-fluid layadmin-maillist-fluid">
   <div  class="layui-form">
-    <blockquote class="layui-elem-quote">搜索场馆</blockquote>
-    <form action="{:url('Venue/getVenueList')}" method="get">
+    <blockquote class="layui-elem-quote">场馆样式</blockquote>
+    <form action="<?php echo url('Venue/getVenueList'); ?>" method="get">
       <div class="layui-form-item">
         <div class="layui-inline">
           <div class="layui-input-inline">
@@ -34,7 +37,7 @@
 
   <div class="layui-row layui-col-space15">
     <div class="layui-col-md4 layui-col-sm6">
-      <div class="layadmin-contact-box" >
+      <div class="layadmin-contact-box" > 
           <div class="v-title" >河北工程大学XXX场馆</div>
           <div class="v-content">图形内容</div>
       </div>
@@ -44,10 +47,12 @@
 </div>
 
 
-  <include file="public/bottom_resources" />
+  <script src="/public/layuiadmin/layui/layui.js"></script>
+<script src="/public/layuiadmin/js/jquery-3.1.1.min.js"></script>
+
   <script>
   layui.config({
-    base: '__PUBLIC__/layuiadmin/' //静态资源所在路径
+    base: '/public/layuiadmin/' //静态资源所在路径
   }).extend({
     index: 'lib/index' //主入口模块
   }).use(['index','form','admin'],function(){
