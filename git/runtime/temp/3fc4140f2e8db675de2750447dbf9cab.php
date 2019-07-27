@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:79:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\seat\edit_seat_view.html";i:1564217117;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:78:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\seat\edit_seat_get.html";i:1564214556;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 
 
 <!DOCTYPE html>
@@ -99,34 +99,34 @@
 
 
     <div class="layui-row layui-col-space15" style="margin-top:20px;">
-        <div >
-            <div class="left" >
-                <div class="venue">
-                    <?php if(isset($storey)): if(is_array($storey) || $storey instanceof \think\Collection || $storey instanceof \think\Paginator): $i = 0; $__LIST__ = $storey;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-                            <div tabindex="1"><?php echo $vo['type']; ?>楼</div>
-                        <?php endforeach; endif; else: echo "" ;endif; endif; ?>
+            <div >
+                <div class="left" >
+                    <div class="venue">
+                        <?php if(isset($storey)): if(is_array($storey) || $storey instanceof \think\Collection || $storey instanceof \think\Paginator): $i = 0; $__LIST__ = $storey;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                                <div tabindex="1"><?php echo $vo['type']; ?>楼</div>
+                            <?php endforeach; endif; else: echo "" ;endif; endif; ?>
+                    </div>
+                    <div class="area">
+                        <div tabindex="1">A</div>
+                        <div>b</div>
+                        <div>c</div>
+                    </div>
+                    <div class="area_color">
+                        <div>某区颜色:十六进制<input type="text" ></div>
+                    </div>
+                    <div class="pai">
+                        <div>排数</div>
+                        <div><input type="text" value="2"></div>
+                        <div><input type="checkbox" name="" >每排座位数相同</div>
+                    </div>
+                    <div class="pai_seat">
+                        <div>X排<input type="text" >座位</div>
+                        <div>X排<input type="text">座位</div>
+                    </div>
                 </div>
-                <div class="area">
-                    <div tabindex="1">A</div>
-                    <div>b</div>
-                    <div>c</div>
-                </div>
-                <div class="area_color">
-                    <div>某区颜色:十六进制<input type="text" ></div>
-                </div>
-                <div class="pai">
-                    <div>排数</div>
-                    <div><input type="text" value="2"></div>
-                    <div><input type="checkbox" name="" >每排座位数相同</div>
-                </div>
-                <div class="pai_seat">
-                    <div>X排<input type="text" >座位</div>
-                    <div>X排<input type="text">座位</div>
-                </div>
+                <div class="right">321</div>
             </div>
-            <div class="right">321</div>
         </div>
-    </div>
 
 </div>
 

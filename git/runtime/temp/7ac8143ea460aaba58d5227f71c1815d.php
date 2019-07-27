@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:92:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\venue\seat_area_row_num_add_view.html";i:1564128489;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:92:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\venue\seat_area_row_num_add_view.html";i:1564219774;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 
 
 <!DOCTYPE html>
@@ -14,11 +14,11 @@
 </head>
 <body>
 
-  <div class="layui-form" lay-filter="layuiadmin-app-form-list" id="layuiadmin-app-form-list" style="padding: 20px 30px 0 0;">
+  <form action="?"  class="layui-form" lay-filter="layuiadmin-app-form-list" id="form1" style="padding: 20px 30px 0 0;">
       <div class="layui-inline">
           <label class="layui-form-label">楼层属于哪场活动</label>
           <div class="layui-input-inline">
-              <select name="activity_id" lay-verify="required" lay-search="">
+              <select name="activity_id" lay-filter="activity" lay-verify="required" lay-search="">
                   <option value="">请选择</option>
                   <?php if(is_array($activity) || $activity instanceof \think\Collection || $activity instanceof \think\Paginator): $i = 0; $__LIST__ = $activity;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                       <option value="<?php echo $vo['id']; ?>"><?php echo $vo['name']; ?></option>
@@ -31,7 +31,7 @@
       <label class="layui-form-label">一楼座位区域排数</label>
       <input type="hidden" name="storey1" value="1">
       <div class="layui-input-inline">
-        <input type="text" name="storey1_pai" id="row1" lay-verify="required"  autocomplete="off" class="layui-input">
+        <input type="text" name="storey1_pai" value=""  id="row1" lay-verify="required"  autocomplete="off" class="layui-input">
       </div>
     </div>
     <div class="layui-form-item" >
@@ -93,7 +93,7 @@
       <input type="button" lay-submit lay-filter="*"  id="LAY-user-back-submit" value="确认添加">
 
     </div>
-  </div>
+  </form>
 
   <script src="/public/layuiadmin/layui/layui.js"></script>
 <script src="/public/layuiadmin/js/jquery-3.1.1.min.js"></script>
@@ -107,6 +107,11 @@
     var $ = layui.$
     ,form = layui.form
     ,admin = layui.admin;
+
+    // form.on('select(activity)', function(data){
+    //   var form = $('#form1');
+    //   form.submit();
+    // });
 
 
     form.on('submit(*)', function(data){

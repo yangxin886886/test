@@ -98,36 +98,36 @@
 
 
     <div class="layui-row layui-col-space15" style="margin-top:20px;">
-        <div >
-            <div class="left" >
-                <div class="venue">
-                    <if condition="isset($storey)">
-                        <volist name="storey" id="vo">
-                            <div tabindex="1">{$vo.type}楼</div>
-                        </volist>
-                    </if>
+            <div >
+                <div class="left" >
+                    <div class="venue">
+                        <if condition="isset($storey)">
+                            <volist name="storey" id="vo">
+                                <div tabindex="1">{$vo.type}楼</div>
+                            </volist>
+                        </if>
+                    </div>
+                    <div class="area">
+                        <div tabindex="1">A</div>
+                        <div>b</div>
+                        <div>c</div>
+                    </div>
+                    <div class="area_color">
+                        <div>某区颜色:十六进制<input type="text" ></div>
+                    </div>
+                    <div class="pai">
+                        <div>排数</div>
+                        <div><input type="text" value="2"></div>
+                        <div><input type="checkbox" name="" >每排座位数相同</div>
+                    </div>
+                    <div class="pai_seat">
+                        <div>X排<input type="text" >座位</div>
+                        <div>X排<input type="text">座位</div>
+                    </div>
                 </div>
-                <div class="area">
-                    <div tabindex="1">A</div>
-                    <div>b</div>
-                    <div>c</div>
-                </div>
-                <div class="area_color">
-                    <div>某区颜色:十六进制<input type="text" ></div>
-                </div>
-                <div class="pai">
-                    <div>排数</div>
-                    <div><input type="text" value="2"></div>
-                    <div><input type="checkbox" name="" >每排座位数相同</div>
-                </div>
-                <div class="pai_seat">
-                    <div>X排<input type="text" >座位</div>
-                    <div>X排<input type="text">座位</div>
-                </div>
+                <div class="right">321</div>
             </div>
-            <div class="right">321</div>
         </div>
-    </div>
 
 </div>
 
