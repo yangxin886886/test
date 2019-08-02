@@ -7,13 +7,6 @@ class Test extends Controller {
         return $this->fetch();
     }
     public function test(){
-        $a = json_decode('["",""]',true);
-        dump($a);
-        if(!$a){
-            echo 123;
-        }else{
-            echo 321;
-        }
-
+        new  \app\admin\logic\Code(5,100,[['code'=>'ASF18']],'code');
     }
 }

@@ -282,12 +282,57 @@ class Seat extends Base
         $this->saveAjaxReturn($res);
     }
 
-    //设置VIP验证码
-    public function setVipCode(){
+    //设置活动验证码
+    public function setActivityCode(){
+        $activity_id = input('activity_id');
         $code_count = input('code_count'); //验证码数量
         $weishu = input('weishu');//验证码位数
-        $type = input('type');//1：普通验证码 2：VIP验证码
+        if(!$weishu){
+            $weishu =  input('vweishu');
+        }
+        $level = input('level');//1：普通验证码 2：VIP验证码
 
+        if(!$activity_id){
+            $this->ajaxReturn([],400,'未选活动或活动错误');
+        }
+        if(!$code_count){
+            $this->ajaxReturn([],400,'验证码数量错误');
+        }
+        if(!$weishu){
+            $this->ajaxReturn([],400,'验证码位数错误');
+        }
+        if(!$level){
+            $this->ajaxReturn([],400,'level错误');
+        }
+        //禁止生成的验证码
+        $is_no_code = db('code')->where('activity_id',$activity_id)->select();
+
+        $save = [];
+        $code = new  \app\admin\logic\Code($weishu,$code_count,$is_no_code);
+        $code = $code->getRes(); //获取验证码数组
+        foreach ($code as $k=>$v){
+            $arr = [
+                'activity_id'=>$activity_id,
+                'level'=>$level,
+                'weishu'=>$weishu,
+                'code'=>$v
+            ];
+            array_push($save,$arr);
+        }
+
+        $is = db('code')
+            ->where('activity_id',$activity_id)
+            ->where('level',$level)
+            ->select();
+        //编辑操作
+        if($is){
+            db('code')
+                ->where('activity_id',$activity_id)
+                ->where('level',$level)
+                ->delete();
+        }
+        $res = db('code')->insertAll($save);
+        $this->saveAjaxReturn($res);
     }
 
 }

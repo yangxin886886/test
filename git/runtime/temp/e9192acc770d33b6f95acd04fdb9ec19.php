@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\seat\reserve_view.html";i:1564710973;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\seat\reserve_view.html";i:1564736421;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 
 
 <!DOCTYPE html>
@@ -139,7 +139,7 @@
 
     <div class="layui-row layui-col-space15" style="margin-top:20px;">
         <div style="margin-left:25px">场馆:<span class="venue"></span></div>
-        <div  class="layui-form" >
+        <div   >
             <div class="left" >
                 <div class="storey">
                 </div>
@@ -150,30 +150,46 @@
                 <div class="r_table" id="r_table">
                 </div>
 
-                <div class="set_vip_area" >
+                <div class="set_vip_area layui-form" >
                     <div class="layui-form-item">
                         <label class="layui-form-label">设置当前区域为VIP区域</label>
                         <div class="layui-input-block" onclick="setVipArea(this)">
-                            <input type="checkbox"  id="is_vip_area" name="close" lay-skin="switch" lay-text="YES|NO">
+                            <input type="checkbox"  id="is_vip_area" name="open" checked lay-skin="switch" lay-text="YES|NO">
                         </div>
                     </div>
-                    <input type="hidden" value="2">
+                    <input type="hidden" value="2" name="level">
+                    <div>
+                        <input type="radio" name="vweishu" value="4" title="4位数" checked="">
+                        <input type="radio" name="vweishu" value="5" title="5位数">
+                        <input type="radio" name="vweishu" value="6" title="6位数">
+                    </div>
+
+                    <div class="vip_count">
+                        <div><input type="text" class="layui-input" name="code_count"></div><div>验证码总数量</div>
+                    </div>
+                    <div><button class="layui-btn" lay-submit lay-filter="*">提交</button></div>
+                </div>
+
+
+                <div class="set_vip_area layui-form"  >
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">普通用户验证码</label>
+                    </div>
+                    <input type="hidden" value="1" name="level">
                     <div>
                         <input type="radio" name="weishu" value="4" title="4位数" checked="">
                         <input type="radio" name="weishu" value="5" title="5位数">
                         <input type="radio" name="weishu" value="6" title="6位数">
                     </div>
-
                     <div class="vip_count">
-                        <div><input type="text" class="layui-input" name="code_count"></div><div>VIP验证码总数量</div>
+                        <div><input type="text" class="layui-input" name="code_count"></div><div>验证码总数量</div>
                     </div>
                     <div><button class="layui-btn" lay-submit lay-filter="*">提交</button></div>
                 </div>
-<!--                <div>-->
-<!--                    <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>-->
-<!--                </div>-->
             </div>
         </div>
+
+
 
     </div>
 
@@ -204,7 +220,15 @@
             ,admin = layui.admin;
 
         form.on('submit(*)',function(data){
-            console.log(data);
+            var obj = data.field;
+            obj.activity_id = activity_id;
+            admin.req({
+                url:"<?php echo url('Seat/setActivityCode'); ?>",
+                data:obj,
+                done:function(res){
+                    layer.msg('成功')
+                }
+            });
         })
 
 
@@ -242,6 +266,7 @@
         }
 
     });
+
 
     var area = null;  //楼层对应的区域例如：['A','B']
     function getArea(obj) {
