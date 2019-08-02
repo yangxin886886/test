@@ -13,11 +13,11 @@
 
   <form action="?"  class="layui-form" lay-filter="layuiadmin-app-form-list" id="form1" style="padding: 20px 30px 0 0;">
       <div class="layui-inline">
-          <label class="layui-form-label">楼层属于哪场活动</label>
+          <label class="layui-form-label">楼层属于那个场馆</label>
           <div class="layui-input-inline">
-              <select name="activity_id" lay-filter="activity" lay-verify="required" lay-search="">
+              <select name="venue_id" lay-filter="venue" lay-verify="required" lay-search="">
                   <option value="">请选择</option>
-                  <volist name="activity" id="vo">
+                  <volist name="venue" id="vo">
                       <option value="{$vo.id}">{$vo.name}</option>
                   </volist>
               </select>

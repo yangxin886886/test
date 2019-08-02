@@ -39,8 +39,8 @@ class Venue extends Base{
      * 添加楼层--页面
     */
     public function seatAreaRowNumAddView(){
-        $activity = db('activity')->select();
-        $this->assign('activity',$activity);
+        $venue = db('venue')->select();
+        $this->assign('venue',$venue);
 
         $activity_id = input('activity_id');
         $storey = db('storey')->where('activity_id',$activity_id)->select();
@@ -51,81 +51,72 @@ class Venue extends Base{
     //设置楼层排数
     public function setStorey(){
         //楼层1
-        $add['activity_id'] = input('activity_id');
+        $add['venue_id'] = input('venue_id');
         $add['type'] = input('storey1');
         $add['pai_number'] = input('storey1_pai');
         $add['add_time'] = time();
+        $add['pai_area'] = json_encode(input('storey1Pai/a'));
         $res = 0;
-
-        if(!$add['activity_id'] && empty($add['activity_id'])){
-            $this->ajaxReturn([],400,'activity_id错误');
+        if(!$add['venue_id'] && empty($add['venue_id'])){
+            $this->ajaxReturn([],400,'venue_id错误');
         }
-        if(!empty($add['pai_number']) && $add['pai_number'] > 0){
-            $add['pai_area'] = json_encode(input('storey1Pai/a'));
-            //是编辑操作还是新增操作
-            $is_add = db('storey')
-                ->where('activity_id',$add['activity_id'])
-                ->where('type',$add['type'])
-                ->select();
 
+        $is_add = db('storey')
+            ->where('venue_id',$add['venue_id'])
+            ->where('type',$add['type'])
+            ->select();
+        if(count($is_add) > 0){
             //编辑
-            if(count($is_add) > 0){
-                $res = db('storey')
-                    ->where('activity_id',$add['activity_id'])
-                    ->where('type',$add['type'])
-                    ->update($add);
-            }else{
-                $res = db('storey')->insert($add);
-            }
+            $res = db('storey')
+                ->where('venue_id',$add['venue_id'])
+                ->where('type',$add['type'])
+                ->update($add);
+
+        }else{
+            $res = db('storey')->insert($add);
         }
 
         //楼层2
-        $add['type'] = input('storey2');
-        $add['pai_number'] = input('storey2_pai');
-        if(!empty($add['pai_number']) && $add['pai_number'] > 0){
-            $add['pai_area'] = json_encode(input('storey2Pai/a'));
-            //是编辑操作还是新增操作
-            $is_add = db('storey')
-                ->where('activity_id',$add['activity_id'])
-                ->where('type',$add['type'])
-                ->select();
-
+        $add['type'] = input('storey2'); //第几楼
+        $add['pai_number'] = input('storey2_pai');  //有几排
+        $add['pai_area'] = json_encode(input('storey2Pai/a'));
+        if(count($is_add) > 0){
             //编辑
-            if(count($is_add) > 0){
-                $res = db('storey')
-                    ->where('activity_id',$add['activity_id'])
-                    ->where('type',$add['type'])
-                    ->update($add);
-            }else{
-                $res = db('storey')->insert($add);
-            }
+            $res = db('storey')
+                ->where('venue_id',$add['venue_id'])
+                ->where('type',$add['type'])
+                ->update($add);
+
+        }else{
+            $res = db('storey')->insert($add);
         }
 
         //楼层3
         $add['type'] = input('storey3');
         $add['pai_number'] = input('storey3_pai');
-        if(!empty($add['pai_number']) && $add['pai_number'] > 0){
-            $add['pai_area'] = json_encode(input('storey3Pai/a'));
-            //是编辑操作还是新增操作
-            $is_add = db('storey')
-                ->where('activity_id',$add['activity_id'])
-                ->where('type',$add['type'])
-                ->select();
-
+        $add['pai_area'] = json_encode(input('storey3Pai/a'));
+        if(count($is_add) > 0){
             //编辑
-            if(count($is_add) > 0){
-                $res = db('storey')
-                    ->where('activity_id',$add['activity_id'])
-                    ->where('type',$add['type'])
-                    ->update($add);
-            }else{
-                $res = db('storey')->insert($add);
-            }
+            $res = db('storey')
+                ->where('venue_id',$add['venue_id'])
+                ->where('type',$add['type'])
+                ->update($add);
+
+        }else{
+            $res = db('storey')->insert($add);
         }
+
         $this->saveAjaxReturn($res);
     }
 
     public function setPaiAreaView(){
         return $this->fetch();
+    }
+
+    /**
+     * 创建楼层对应的区域
+     */
+    public function createArea(){
+
     }
 }

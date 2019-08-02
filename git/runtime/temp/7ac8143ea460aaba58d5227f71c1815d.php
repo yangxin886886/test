@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:92:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\venue\seat_area_row_num_add_view.html";i:1564219774;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:92:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\venue\seat_area_row_num_add_view.html";i:1564456367;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 
 
 <!DOCTYPE html>
@@ -16,11 +16,11 @@
 
   <form action="?"  class="layui-form" lay-filter="layuiadmin-app-form-list" id="form1" style="padding: 20px 30px 0 0;">
       <div class="layui-inline">
-          <label class="layui-form-label">楼层属于哪场活动</label>
+          <label class="layui-form-label">楼层属于那个场馆</label>
           <div class="layui-input-inline">
-              <select name="activity_id" lay-filter="activity" lay-verify="required" lay-search="">
+              <select name="venue_id" lay-filter="venue" lay-verify="required" lay-search="">
                   <option value="">请选择</option>
-                  <?php if(is_array($activity) || $activity instanceof \think\Collection || $activity instanceof \think\Paginator): $i = 0; $__LIST__ = $activity;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                  <?php if(is_array($venue) || $venue instanceof \think\Collection || $venue instanceof \think\Paginator): $i = 0; $__LIST__ = $venue;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                       <option value="<?php echo $vo['id']; ?>"><?php echo $vo['name']; ?></option>
                   <?php endforeach; endif; else: echo "" ;endif; ?>
               </select>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:87:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\activity\activity_edit_view.html";i:1563785480;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:87:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\activity\activity_edit_view.html";i:1564566767;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +32,18 @@
                         <!--                </div>-->
                         <!--                <div class="layui-form-mid layui-word-aux">当前角色不可更改为其它角色</div>-->
                         <!--              </div>-->
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">选择场馆</label>
+                            <div class="layui-input-inline">
+                                <select name="venue_id">
+                                    <option value="">请选择场馆</option>
+                                    <?php if(is_array($venue) || $venue instanceof \think\Collection || $venue instanceof \think\Paginator): $i = 0; $__LIST__ = $venue;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                                        <option value="<?php echo $vo['id']; ?>" <?php if($vo['id'] == $activity['venue_id']): ?> selected <?php endif; ?>><?php echo $vo['name']; ?></option>
+                                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="layui-form-item">
                             <label class="layui-form-label">活动名称</label>
                             <div class="layui-input-inline">
@@ -131,9 +143,10 @@
 
                         <div class="layui-form-item">
                             <div class="layui-input-block">
-                                <button class="layui-btn" lay-submit lay-filter="*">确认</button>
+                                <button class="layui-btn" lay-submit lay-filter="*" id="LAY-user-back-submit">确认</button>
                             </div>
                         </div>
+
                     </div>
 
                 </div>

@@ -17,6 +17,8 @@ class Activity extends Base{
      * 创建活动页面
     */
     public function createActivityView(){
+        $venue = db('venue')->select();
+        $this->assign('venue',$venue);
         return $this->fetch();
     }
 
@@ -118,9 +120,19 @@ class Activity extends Base{
             exit('id错误');
         }
 
+        $venue = db('venue')->select();
+        $this->assign('venue',$venue);
+
         $activity = db('activity')->where('id',$id)->find();
         $this->assign('activity',$activity);
         $this->assign('imgPrefix',$imgPrefix);
+        return $this->fetch();
+    }
+
+    //设置活动的二维码
+    public function setCode(){
+        $activity = db('activity')->select();
+        $this->assign('activity',$activity);
         return $this->fetch();
     }
 }

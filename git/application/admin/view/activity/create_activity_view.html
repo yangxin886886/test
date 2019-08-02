@@ -31,6 +31,18 @@
 <!--                </div>-->
 <!--                <div class="layui-form-mid layui-word-aux">当前角色不可更改为其它角色</div>-->
 <!--              </div>-->
+             <div class="layui-form-item">
+                <label class="layui-form-label">选择场馆</label>
+                <div class="layui-input-inline">
+                    <select name="venue_id">
+                        <option value="">请选择场馆</option>
+                        <volist name="venue" id="vo">
+                            <option value="{$vo.id}">{$vo.name}</option>
+                        </volist>
+                    </select>
+                </div>
+             </div>
+
               <div class="layui-form-item">
                 <label class="layui-form-label">活动名称</label>
                 <div class="layui-input-inline">

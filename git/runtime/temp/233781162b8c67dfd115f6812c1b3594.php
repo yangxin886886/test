@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:78:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\venue\create_venue.html";i:1564020690;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:78:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\venue\create_venue.html";i:1564556480;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 
 
 <!DOCTYPE html>
@@ -46,18 +46,18 @@
                 <label class="layui-form-label">排布方式：</label>
                 <div class="layui-input-block">
                     <div>
-                        <input type="radio" name="pbfs" value="1" title="" checked="">
-                        <span>方式1：分区单独编号排布(适用于不规则且有多个座位区域的场馆)</span>
+                        <input type="radio" name="pbfs" value="1" title="">
+                        <span>分区单独编号排布(适用于不规则且有多个座位区域的场馆)</span>
                     </div>
 
-                    <div>
-                        <span>方式2：奇偶左右分离排布(适用于座位奇偶分开，各占一侧排布)</span>
+<!--                    <div>-->
+<!--                        <span>方式2：奇偶左右分离排布(适用于座位奇偶分开，各占一侧排布)</span>-->
 
-                    </div>
-                    <div>
-                        <input type="radio" name="pbfs" value="2" title="左奇右偶" checked="">
-                        <input type="radio" name="pbfs" value="3" title="左偶右奇" checked="">
-                    </div>
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <input type="radio" name="pbfs" value="2" title="左奇右偶" >-->
+<!--                        <input type="radio" name="pbfs" value="3" title="左偶右奇" >-->
+<!--                    </div>-->
 
                 </div>
             </div>
@@ -69,13 +69,13 @@
                         <div class="v-content" >图形内容</div>
                     </div>
                 </div>
-                <div class="layui-col-md12 ">
-                    <div class="layadmin-contact-box" >
-                        <blockquote class="layui-elem-quote">方式二</blockquote>
-                        <div class="v-content" >图形内容</div>
-                    </div>
+<!--                <div class="layui-col-md12 ">-->
+<!--                    <div class="layadmin-contact-box" >-->
+<!--                        <blockquote class="layui-elem-quote">方式二</blockquote>-->
+<!--                        <div class="v-content" >图形内容</div>-->
+<!--                    </div>-->
 
-                </div>
+<!--                </div>-->
 
             </div>
 

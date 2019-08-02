@@ -30,6 +30,18 @@
                         <!--                <div class="layui-form-mid layui-word-aux">当前角色不可更改为其它角色</div>-->
                         <!--              </div>-->
                         <div class="layui-form-item">
+                            <label class="layui-form-label">选择场馆</label>
+                            <div class="layui-input-inline">
+                                <select name="venue_id">
+                                    <option value="">请选择场馆</option>
+                                    <volist name="venue" id="vo">
+                                        <option value="{$vo.id}" <if condition="$vo.id eq $activity.venue_id"> selected </if>>{$vo.name}</option>
+                                    </volist>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
                             <label class="layui-form-label">活动名称</label>
                             <div class="layui-input-inline">
                                 <input type="text" name="name" value="{$activity.name}" lay-verify="required"  class="layui-input">
@@ -128,9 +140,10 @@
 
                         <div class="layui-form-item">
                             <div class="layui-input-block">
-                                <button class="layui-btn" lay-submit lay-filter="*">确认</button>
+                                <button class="layui-btn" lay-submit lay-filter="*" id="LAY-user-back-submit">确认</button>
                             </div>
                         </div>
+
                     </div>
 
                 </div>
