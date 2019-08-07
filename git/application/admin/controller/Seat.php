@@ -146,6 +146,7 @@ class Seat extends Base
     //获取区域的颜色和排数
     public function getAreaColorPai()
     {
+        $activity_id = input('activity_id');
         $venue_id = input('venue_id');
         $storey_id = input('storey_id');
         $area = input('area');
@@ -164,6 +165,14 @@ class Seat extends Base
             ->where('area', $area)
             ->find();
         $data['pai_seat'] = json_decode($data['pai_seat'], true);
+
+        //获取预留座位
+        $reserve = db('reserve')
+            ->where('activity_id',$activity_id)
+            ->where('venue_id',$venue_id)
+            ->where('area',$area)
+            ->select();
+        $data['reserve'] = $reserve;
         $this->ajaxReturn($data);
     }
 
@@ -335,4 +344,38 @@ class Seat extends Base
         $this->saveAjaxReturn($res);
     }
 
+    //是否是vip区域
+    public function isVip(){
+        $activity_id =  input('activity_id');
+        $area = input('area');
+        $is = db('set_vip_area')
+            ->where('activity_id',$activity_id)
+            ->where('area',$area)
+            ->select();
+        if(count($is) > 0){
+            $this->ajaxReturn(['is_vip'=>1]);
+        }
+        $this->ajaxReturn(['is_vip'=>0]);
+    }
+
+    //获取活动的验证码
+    public function getActivityCode(){
+        $activity_id = input('activity_id');
+        $level = input('level');
+        if(!$activity_id){
+            $this->ajaxReturn([],400,'活动错误');
+        }
+        if(!$activity_id){
+            $this->ajaxReturn([],400,'level错误');
+        }
+        $code_count = db('code')
+            ->where('activity_id',$activity_id)
+            ->where('level',$level)
+            ->count();
+        $weishu = db('code')
+            ->where('activity_id',$activity_id)
+            ->where('level',$level)
+            ->value('weishu');
+        $this->ajaxReturn(['code_count'=>$code_count,'weishu'=>$weishu]);
+    }
 }

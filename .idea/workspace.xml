@@ -3,10 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="65bbc708-79b2-42df-93a1-9291dcb01c1e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/git/application/admin/controller/Activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/git/application/admin/controller/Activity.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/git/application/admin/controller/Seat.php" beforeDir="false" afterPath="$PROJECT_DIR$/git/application/admin/controller/Seat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/git/application/admin/controller/Test.php" beforeDir="false" afterPath="$PROJECT_DIR$/git/application/admin/controller/Test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/git/application/admin/logic/Code.php" beforeDir="false" afterPath="$PROJECT_DIR$/git/application/admin/logic/Code.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/git/application/admin/controller/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/git/application/admin/controller/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/git/application/admin/view/seat/reserve_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/git/application/admin/view/seat/reserve_view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/git/application/admin/view/user/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/git/application/admin/view/user/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/git/application/admin/view/user/register_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/git/application/admin/view/user/register_view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/git/runtime/temp/4c97e9bf7aa61c906373d1b5b3ce5ce3.php" beforeDir="false" afterPath="$PROJECT_DIR$/git/runtime/temp/4c97e9bf7aa61c906373d1b5b3ce5ce3.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/git/runtime/temp/4d9ec9e60977b19a386ccfe1637e0f5e.php" beforeDir="false" afterPath="$PROJECT_DIR$/git/runtime/temp/4d9ec9e60977b19a386ccfe1637e0f5e.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/git/runtime/temp/e9192acc770d33b6f95acd04fdb9ec19.php" beforeDir="false" afterPath="$PROJECT_DIR$/git/runtime/temp/e9192acc770d33b6f95acd04fdb9ec19.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yangxin" beforeDir="false" afterPath="$PROJECT_DIR$/yangxin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yangxin/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/yangxin/test.txt" afterDir="false" />
@@ -40,102 +44,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/git/application/admin/controller/Seat.php">
+        <entry file="file://$PROJECT_DIR$/git/application/api/controller/Base.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="284" column="13" lean-forward="true" selection-start-line="284" selection-start-column="13" selection-end-line="284" selection-end-column="13" />
+            <state relative-caret-position="297">
+              <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/git/application/admin/controller/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/git/application/admin/view/user/register_view.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/git/application/admin/logic/Code.php">
+        <entry file="file://$PROJECT_DIR$/git/application/admin/view/user/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="40" column="43" lean-forward="true" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/git/application/admin/controller/Test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="69" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/git/application/admin/view/seat/reserve_view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="170" column="54" lean-forward="true" selection-start-line="170" selection-start-column="54" selection-end-line="170" selection-end-column="54" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/git/application/api/controller/Base.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/git/application/admin/controller/Base.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4158">
-              <caret line="157" column="5" lean-forward="true" selection-start-line="151" selection-start-column="4" selection-end-line="157" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/git/application/admin/view/seat/edit_seat_view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3267">
-              <caret line="121" column="26" selection-start-line="121" selection-start-column="26" selection-end-line="121" selection-end-column="26" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/git/application/admin/view/activity/create_activity_view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1134">
-              <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-              <folding>
-                <element signature="n#div#5;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/git/application/admin/area/area.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" column="68" selection-start-line="2" selection-start-column="3" selection-end-line="3" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/git/application/admin/controller/Activity.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3267">
-              <caret line="121" selection-start-line="121" selection-end-line="121" />
+            <state relative-caret-position="206">
+              <caret line="41" column="14" lean-forward="true" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -152,14 +91,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getArea</find>
-      <find>getSeat(this)</find>
-      <find>getSeat</find>
-      <find>排数</find>
-      <find>暂无楼层信息</find>
-      <find>activityIdVenueList</find>
       <find>getStoreyUrl</find>
-      <find>getAreaColorPai</find>
       <find>reserveSeat</find>
       <find>activityeditview</find>
       <find>createActivityEdit</find>
@@ -179,9 +111,16 @@
       <find>r_td</find>
       <find>checkbox</find>
       <find>check</find>
-      <find>setReserveSeat</find>
       <find>getAreaList</find>
       <find>VIP</find>
+      <find>is_vip</find>
+      <find>setVipArea</find>
+      <find>设置当前区域是佛</find>
+      <find>weishu</find>
+      <find>getAreaColorPai</find>
+      <find>setReserveSeat</find>
+      <find>editSeatView</find>
+      <find>图形验证码</find>
     </findStrings>
     <replaceStrings>
       <replace>$this-&gt;</replace>
@@ -199,9 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/admin/controller/User.php" />
-        <option value="$PROJECT_DIR$/application/admin/view/administrators/admin_add_view.html" />
-        <option value="$PROJECT_DIR$/application/admin/view/administrators/admin_edit_view.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Administrators.php" />
         <option value="$PROJECT_DIR$/application/admin/view/modules/administrators/index.html" />
         <option value="$PROJECT_DIR$/application/admin/menu/menu.php" />
@@ -243,13 +179,16 @@
         <option value="$PROJECT_DIR$/git/application/admin/view/activity/activity_edit_view.html" />
         <option value="$PROJECT_DIR$/git/application/admin/view/activity/create_activity_view.html" />
         <option value="$PROJECT_DIR$/git/application/admin/view/seat/edit_seat_view.html" />
-        <option value="$PROJECT_DIR$/git/application/admin/controller/Activity.php" />
         <option value="$PROJECT_DIR$/git/application/admin/view/activity/set_code.html" />
         <option value="$PROJECT_DIR$/git/application/api/controller/Base.php" />
         <option value="$PROJECT_DIR$/git/application/admin/controller/Test.php" />
         <option value="$PROJECT_DIR$/git/application/admin/controller/Seat.php" />
         <option value="$PROJECT_DIR$/git/application/admin/view/seat/reserve_view.html" />
         <option value="$PROJECT_DIR$/git/application/admin/logic/Code.php" />
+        <option value="$PROJECT_DIR$/git/application/admin/controller/Activity.php" />
+        <option value="$PROJECT_DIR$/git/application/admin/view/user/register_view.html" />
+        <option value="$PROJECT_DIR$/git/application/admin/controller/User.php" />
+        <option value="$PROJECT_DIR$/git/application/admin/view/user/index.html" />
       </list>
     </option>
   </component>
@@ -308,65 +247,6 @@
               <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
               <item name="WWW" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WWW" type="462c0819:PsiDirectoryNode" />
-              <item name="git" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WWW" type="462c0819:PsiDirectoryNode" />
-              <item name="git" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WWW" type="462c0819:PsiDirectoryNode" />
-              <item name="git" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WWW" type="462c0819:PsiDirectoryNode" />
-              <item name="git" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="area" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WWW" type="462c0819:PsiDirectoryNode" />
-              <item name="git" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WWW" type="462c0819:PsiDirectoryNode" />
-              <item name="git" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WWW" type="462c0819:PsiDirectoryNode" />
-              <item name="git" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WWW" type="462c0819:PsiDirectoryNode" />
-              <item name="git" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="seat" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -378,7 +258,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/git/application/admin/view/seat" />
+    <property name="last_opened_file_path" value="E:/SDK/openapi-sdk-php-client-master/openapi-sdk-php-client-master" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -389,19 +269,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\venue" />
-      <recent name="D:\phpstudy\PHPTutorial\WWW\application\admin\logic" />
-      <recent name="D:\phpstudy\PHPTutorial\WWW\application\admin\view\public\tree" />
-      <recent name="D:\phpstudy\PHPTutorial\WWW\public\static\tree" />
-      <recent name="D:\phpstudy\PHPTutorial\WWW\application\admin\view\role" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\seat" />
       <recent name="D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\venue" />
       <recent name="D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\shape" />
       <recent name="D:\phpstudy\PHPTutorial\WWW\git\application\admin\view" />
       <recent name="D:\phpstudy\PHPTutorial\WWW\application\admin\view\activity" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\venue" />
+      <recent name="D:\phpstudy\PHPTutorial\WWW\application\admin\logic" />
+      <recent name="D:\phpstudy\PHPTutorial\WWW\application\admin\view\public\tree" />
+      <recent name="D:\phpstudy\PHPTutorial\WWW\public\static\tree" />
+      <recent name="D:\phpstudy\PHPTutorial\WWW\application\admin\view\role" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -470,11 +350,13 @@
       <workItem from="1564555420702" duration="13862000" />
       <workItem from="1564623135798" duration="22293000" />
       <workItem from="1564710900239" duration="20055000" />
+      <workItem from="1564801810882" duration="11765000" />
+      <workItem from="1564967509897" duration="4493000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="463272000" />
+    <option name="totallyTimeSpent" value="479530000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -487,9 +369,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23462783" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24271844" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -546,16 +427,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/admin/view/activity/create_activity_view.html" />
-    <entry file="file://$PROJECT_DIR$/application/admin/view/menu/index.html" />
-    <entry file="file://$USER_HOME$/.ssh/id_rsa.pub">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" lean-forward="true" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php" />
     <entry file="file://$PROJECT_DIR$/git/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -817,24 +688,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/git/application/api/controller/Base.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/git/application/admin/controller/Base.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4158">
-          <caret line="157" column="5" lean-forward="true" selection-start-line="151" selection-start-column="4" selection-end-line="157" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/git/application/admin/view/seat/edit_seat_view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3267">
-          <caret line="121" column="26" selection-start-line="121" selection-start-column="26" selection-end-line="121" selection-end-column="26" />
+        <state relative-caret-position="6858">
+          <caret line="254" column="14" selection-start-line="254" selection-start-column="14" selection-end-line="254" selection-end-column="14" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -852,13 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/git/application/admin/controller/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3267">
-          <caret line="121" selection-start-line="121" selection-end-line="121" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/git/application/admin/area/area.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -866,24 +716,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/git/application/admin/controller/Test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="69" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/git/application/admin/controller/Seat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="284" column="13" lean-forward="true" selection-start-line="284" selection-start-column="13" selection-end-line="284" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/git/application/admin/view/seat/reserve_view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="170" column="54" lean-forward="true" selection-start-line="170" selection-start-column="54" selection-end-line="170" selection-end-column="54" />
+        <state relative-caret-position="262">
+          <caret line="370" column="42" lean-forward="true" selection-start-line="370" selection-start-column="42" selection-end-line="370" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -893,8 +729,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/git/application/admin/logic/Code.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="40" column="43" lean-forward="true" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+        <state relative-caret-position="351">
+          <caret line="13" column="18" lean-forward="true" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/git/application/admin/controller/Base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="16" column="39" lean-forward="true" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/git/application/admin/controller/Test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/git/application/admin/controller/Activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/git/application/admin/controller/Seat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/git/application/api/controller/Base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/git/application/admin/controller/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/git/application/admin/view/user/register_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/git/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/git/application/admin/view/user/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="41" column="14" lean-forward="true" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
         </state>
       </provider>
     </entry>

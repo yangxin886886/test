@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\user\index.html";i:1563447597;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\user\index.html";i:1565063830;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,30 +23,34 @@
       </div>
       <div class="layadmin-user-login-box layadmin-user-login-body layui-form">
         <div class="layui-form-item">
-          <label class="layadmin-user-login-icon layui-icon layui-icon-cellphone" for="LAY-user-login-username"></label>
-          <input type="text" name="phone" id="LAY-user-login-username" lay-verify="required" placeholder="手机号" class="layui-input">
+          <label class="layadmin-user-login-icon layui-icon layui-icon-cellphone" for="phone"></label>
+          <input type="text" name="phone"  id="phone" lay-verify="required" placeholder="手机号" class="layui-input">
         </div>
-        <div class="layui-form-item">
-          <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
-          <input type="password" name="pwd" id="LAY-user-login-password" lay-verify="required" placeholder="密码" class="layui-input">
-        </div>
-        <div class="layui-form-item">
-          <div class="layui-row">
-            <div class="layui-col-xs7">
-              <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>
-              <input type="text" name="code" id="LAY-user-login-vercode" lay-verify="required" placeholder="图形验证码" class="layui-input">
-            </div>
-            <div class="layui-col-xs5">
-              <div style="margin-left: 10px;">
-                <img src="<?php echo url('User/getEntry'); ?>"  onclick="this.src='<?php echo url('User/getEntry'); ?>'" id="code" class="layadmin-user-login-codeimg" >
+          <input type="hidden" name="type" value="1">
+          <div class="layui-form-item">
+              <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-password"></label>
+              <input type="text" name="phoneCode"   placeholder="验证码" class="layui-input">
+              <div class="layui-input-inline">
+                  <button class="layui-btn layui-btn-warm" onclick="getPhoneCode()">获取验证码</button>
               </div>
-            </div>
           </div>
+        <div class="layui-form-item">
+<!--          <div class="layui-row">-->
+<!--            <div class="layui-col-xs7">-->
+<!--              <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>-->
+<!--              <input type="text" name="code" id="LAY-user-login-vercode" lay-verify="required" placeholder="图形验证码" class="layui-input">-->
+<!--            </div>-->
+<!--            <div class="layui-col-xs5">-->
+<!--              <div style="margin-left: 10px;">-->
+<!--                <img src="<?php echo url('User/getEntry'); ?>"  onclick="this.src='<?php echo url('User/getEntry'); ?>'" id="code" class="layadmin-user-login-codeimg" >-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
-        <div class="layui-form-item" style="margin-bottom: 20px;">
-          <input type="checkbox" name="remember" lay-skin="primary" title="记住密码">
-          <a href="forget.html" class="layadmin-user-jump-change layadmin-link" style="margin-top: 7px;">忘记密码？</a>
-        </div>
+<!--        <div class="layui-form-item" style="margin-bottom: 20px;">-->
+<!--          <input type="checkbox" name="remember" lay-skin="primary" title="记住密码">-->
+<!--          <a href="forget.html" class="layadmin-user-jump-change layadmin-link" style="margin-top: 7px;">忘记密码？</a>-->
+<!--        </div>-->
         <div class="layui-form-item">
           <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-user-login-submit">登 入</button>
         </div>
@@ -131,6 +135,24 @@
     });
 
   });
+
+  //获取验证码
+  function getPhoneCode(){
+
+      var phone = $('#phone').val(); //手机号
+      var data = {phone:phone,type:1};//type:2 注册 1：登录
+
+      $.post("<?php echo url('User/getPhoneCode'); ?>",data,function(res){
+          res = JSON.parse(res);
+          console.log(res);
+          if(res.code != 0){
+              layer.msg(res.msg);
+          }
+          if(res.code == 0){
+              layer.msg('已发送');
+          }
+      });
+  }
   
   function register() {
     window.location.href="<?php echo url('User/registerView'); ?>";

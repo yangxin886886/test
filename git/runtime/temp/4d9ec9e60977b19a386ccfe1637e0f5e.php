@@ -1,11 +1,11 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:78:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\user\register_view.html";i:1563447292;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:78:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\user\register_view.html";i:1565062751;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>注册 - layuiAdmin</title>
+  <title>注册 </title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -24,8 +24,8 @@
       </div>
       <div class="layadmin-user-login-box layadmin-user-login-body layui-form">
         <div class="layui-form-item">
-          <label class="layadmin-user-login-icon layui-icon layui-icon-cellphone" for="LAY-user-login-cellphone"></label>
-          <input type="text" name="phone" id="LAY-user-login-cellphone" lay-verify="phone" placeholder="手机" class="layui-input">
+          <label class="layadmin-user-login-icon layui-icon layui-icon-cellphone" for="phone"></label>
+          <input type="text" name="phone" id="phone" lay-verify="phone" placeholder="手机" class="layui-input">
         </div>
         <div class="layui-form-item">
 <!--          <div class="layui-row">-->
@@ -52,12 +52,20 @@
         </div>
         <div class="layui-form-item">
           <label class="layadmin-user-login-icon layui-icon layui-icon-group" for="LAY-user-login-password"></label>
-          <input type="text" name="organization1" id="" lay-verify="required" placeholder="社团/组织1" class="layui-input">
+          <input type="text" name="organization1" lay-verify="required" placeholder="社团/组织1" class="layui-input">
         </div>
         <div class="layui-form-item">
           <label class="layadmin-user-login-icon layui-icon layui-icon-group" for="LAY-user-login-password"></label>
-          <input type="text" name="organization2" id=""  placeholder="社团/组织2可选填" class="layui-input">
+          <input type="text" name="organization2"  placeholder="社团/组织2可选填" class="layui-input">
         </div>
+
+          <div class="layui-form-item">
+              <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-password"></label>
+              <input type="text" name="phoneCode"   placeholder="验证码" class="layui-input">
+              <div class="layui-input-inline">
+                  <button class="layui-btn layui-btn-warm" onclick="getPhoneCode()">获取验证码</button>
+              </div>
+          </div>
 
           <div class="layui-form-item">
               <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
@@ -154,10 +162,30 @@
           });
         }
       });
-      
       return false;
     });
+
+
   });
+
+
+  //获取验证码
+  function getPhoneCode(){
+
+      var phone = $('#phone').val(); //手机号
+      var data = {phone:phone,type:2};//type:2 注册 1：登录
+
+      $.post("<?php echo url('User/getPhoneCode'); ?>",data,function(res){
+          res = JSON.parse(res);
+          console.log(res);
+          if(res.code != 0){
+              layer.msg(res.msg);
+          }
+          if(res.code == 0){
+            layer.msg('已发送');
+          }
+      });
+  }
   
   function  signUp() {
       window.location.href = "<?php echo url('User/index'); ?>";

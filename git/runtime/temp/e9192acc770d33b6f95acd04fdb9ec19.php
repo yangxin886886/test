@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\seat\reserve_view.html";i:1564736421;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"D:\phpstudy\PHPTutorial\WWW\git/application/admin\view\seat\reserve_view.html";i:1564823195;s:81:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\head_resources.html";i:1563868278;s:83:"D:\phpstudy\PHPTutorial\WWW\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 
 
 <!DOCTYPE html>
@@ -146,43 +146,44 @@
                 <div class="area">
                 </div>
 
-                <div>座位：点击座位即可预留</div>
+                <div>座位：点击座位即可预留--绿色代表预留的座位</div>
                 <div class="r_table" id="r_table">
                 </div>
+                <div class="reserve">当前预留座位：</div>
 
                 <div class="set_vip_area layui-form" >
                     <div class="layui-form-item">
-                        <label class="layui-form-label">设置当前区域为VIP区域</label>
-                        <div class="layui-input-block" onclick="setVipArea(this)">
-                            <input type="checkbox"  id="is_vip_area" name="open" checked lay-skin="switch" lay-text="YES|NO">
+                        <label class="layui-form-label">当前区域是否为VIP区域</label>
+                        <div class="layui-input-block" onclick="setVipArea(this)" id="is_vip">
+
                         </div>
                     </div>
                     <input type="hidden" value="2" name="level">
-                    <div>
-                        <input type="radio" name="vweishu" value="4" title="4位数" checked="">
-                        <input type="radio" name="vweishu" value="5" title="5位数">
-                        <input type="radio" name="vweishu" value="6" title="6位数">
+                    <div  class="vip_weishu">
+                        <input type="radio" name="vweishu" value="4" title="4位数" data-val="4">
+                        <input type="radio" name="vweishu" value="5" title="5位数" data-val="5">
+                        <input type="radio" name="vweishu" value="6" title="6位数" data-val="6">
                     </div>
 
                     <div class="vip_count">
-                        <div><input type="text" class="layui-input" name="code_count"></div><div>验证码总数量</div>
+                        <div><input type="text" class="layui-input" name="code_count" id="vip_code_count"></div><div>验证码总数量</div>
                     </div>
                     <div><button class="layui-btn" lay-submit lay-filter="*">提交</button></div>
                 </div>
 
 
-                <div class="set_vip_area layui-form"  >
+                <div class="set_vip_area layui-form" >
                     <div class="layui-form-item">
                         <label class="layui-form-label">普通用户验证码</label>
                     </div>
                     <input type="hidden" value="1" name="level">
-                    <div>
-                        <input type="radio" name="weishu" value="4" title="4位数" checked="">
+                    <div class="weishu">
+                        <input type="radio" name="weishu" value="4" title="4位数">
                         <input type="radio" name="weishu" value="5" title="5位数">
                         <input type="radio" name="weishu" value="6" title="6位数">
                     </div>
                     <div class="vip_count">
-                        <div><input type="text" class="layui-input" name="code_count"></div><div>验证码总数量</div>
+                        <div><input type="text" class="layui-input" name="code_count" id="code_count"></div><div>验证码总数量</div>
                     </div>
                     <div><button class="layui-btn" lay-submit lay-filter="*">提交</button></div>
                 </div>
@@ -234,8 +235,11 @@
 
         var aIdGetStoreyUrl = "<?php echo url('Seat/aIdGetStorey'); ?>";
         form.on('select(activity)', function(data){
-
+            console.log('-----');
+            console.log($('.vip_weishu input'));
+            console.log('-----');
             layer.load();
+
             activity_id = data.value; //修改当前场馆id
             admin.req({
                 url:aIdGetStoreyUrl,
@@ -247,8 +251,45 @@
                     $('.venue').html(res.data.venue_name);
 
                 }
-            }
-            )
+            });
+            //获取VIP区域验证码信息
+            admin.req({
+                url:"<?php echo url('Seat/getActivityCode'); ?>",
+                data:{'activity_id':activity_id,level:2},
+                done:function (res) {
+                    if(res.data.code_count != 0){
+                        $('#vip_code_count').val(res.data.code_count);
+                    }
+                    if(res.data.weishu && res.data.weishu != null ){
+                        var weishu = res.data.weishu;
+                        $('.vip_weishu').append('<span>当前位数：'+ weishu +'</span>');
+                        // var vip_weishu = $('.vip_weishu input');
+                        // vip_weishu.each(function(){
+                        //     // var val = $(this).val();
+                        //     if(weishu == val){
+                        //
+                        //     }
+                        // })
+                    }
+                }
+            })
+
+            //获取普通区域对应的验证码
+            admin.req({
+                url:"<?php echo url('Seat/getActivityCode'); ?>",
+                data:{'activity_id':activity_id,level:1},
+                done:function (res) {
+
+
+                    if(res.data.code_count != 0){
+                        $('#code_count').val(res.data.code_count);
+                    }
+                    if(res.data.weishu && res.data.weishu != null ){
+                        var weishu = res.data.weishu;
+                        $('.weishu').append('<span>当前位数：'+ weishu +'</span>');
+                    }
+                }
+            })
             layer.closeAll('loading');
 
         });
@@ -304,14 +345,16 @@
 
         var getAreaColorPaiUrl = "<?php echo url('Seat/getAreaColorPai'); ?>";
         var data = {
+            activity_id:activity_id,
             venue_id:venue_id,
             storey_id:storey_id,
             area:c_area
         };
         $.post(getAreaColorPaiUrl,data,function(res){
+            $('.r_table').html('');
             var res= JSON.parse(res);
-            console.log(res.data.pai_seat);
-            var pai_seat = res.data.pai_seat;
+            console.log(res.data);
+            var pai_seat = res.data.pai_seat; //pai_seat:[1,3]代表1排有1个座位 2排有3个座位
             if(res.code == 0){
                 var box = '';
                 if(!pai_seat){
@@ -330,11 +373,36 @@
                         box += '</div>';
                     }
                 })
-                console.log(box);
                 $('.r_table').append(box);
 
+                //显示预留座位
+                if(res.data.reserve.length > 0){
+                    res.data.reserve.forEach(function(item,index){
+                        $('[data-seat-num='+ item.seat_num+']').css('background',selected);
+                        $('[data-seat-num='+ item.seat_num+']').attr('data-selected','1');
+                    });
+                }
             }
         });
+
+        //当前区域是否是vip区域
+        var is_vip_url = "<?php echo url('Seat/isVip'); ?>";
+        var data = {activity_id:activity_id,area:c_area};
+        $.post(is_vip_url,data,function(res){
+            var res= JSON.parse(res);
+            $('#is_vip').html('');
+            console.log(res);
+            if(res.data.is_vip == 1){
+                var box = '<button class="layui-btn" id="is_vip_area" data-status="1"  name="open">是</button>';
+                $('#is_vip').append(box);
+            }else{
+                var box = '<button class="layui-btn" id="is_vip_area" data-status="0" name="open">否</button>';
+                $('#is_vip').append(box);
+            }
+        });
+
+
+
         layer.closeAll('loading');
     }
     
@@ -382,10 +450,21 @@
                 area:c_area
             },
             function(res){
+                var status =   $('#is_vip_area').attr('data-status');
                 var res= JSON.parse(res);
                 //成功
                 if(res.code == 0){
                     layer.msg('成功');
+                    if(status == 1){
+                        $('#is_vip').html('');
+                        var box = '<button class="layui-btn" id="is_vip_area" data-status="0"  name="open">否</button>';
+                        $('#is_vip').append(box);
+                    }
+                    if(status == 0){
+                        $('#is_vip').html('');
+                        var box = '<button class="layui-btn" id="is_vip_area" data-status="1"  name="open">是</button>';
+                        $('#is_vip').append(box);
+                    }
                 }else{
                     layer.msg('失败');
                 }

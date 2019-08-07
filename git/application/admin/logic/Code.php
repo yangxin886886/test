@@ -92,4 +92,5 @@ class Code{
     public function getRes(){
         return $this->res;
     }
+
 }

@@ -1,5 +1,6 @@
 <?php
 namespace app\admin\controller;
+
 class Activity extends Base{
     public function index(){
         return $this->fetch();
@@ -9,7 +10,7 @@ class Activity extends Base{
      * 获取活动列表
     */
     public function getActivityList(){
-        $activity = db('activity')->select();
+        $activity = db('activity')->where('user_id',$this->userInfo['id'])->select();
         $this->ajaxReturn($activity);
     }
 

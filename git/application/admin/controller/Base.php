@@ -62,6 +62,7 @@ class Base extends Controller{
 
     /**
      * 保存普通管理员对应的菜单id;例[1,2 7]
+     * @param $this->menu_id [1,2 7]
     */
     public function setMenuID(){
         //下面是普通管理员
