@@ -143,6 +143,12 @@ class User extends Controller {
             exit(json_encode($return));
         }
 
+        //设置用户默认角色
+        $role_id = $this->setDefaultRole();
+        if($role_id){
+            $add['role_id'] = $role_id;
+        }
+
         $res = db('user')->insert($add);
         if($res > 0){
             $return = ['code'=>0,'msg'=>'成功','data'=>[]];
@@ -153,6 +159,19 @@ class User extends Controller {
         }
     }
 
+
+    //设置用户默认角色
+    public function setDefaultRole(){
+        $role_id = [];
+        $role = db('role')->where('is_default_role',1)->select();
+        if(!$role){
+            return 0;
+        }
+        foreach ($role as $k=>$v){
+            array_push($role_id,$v['id']);
+        }
+        return json_encode($role_id);
+    }
 
     /**
      * 获取验证码

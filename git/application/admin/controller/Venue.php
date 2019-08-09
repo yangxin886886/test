@@ -10,9 +10,9 @@ class Venue extends Base{
     }
 
     public function venueAdd(){
-        $save['name'] = input('name');
-        $save['school'] = input('school');
-        $save['xq_name'] = input('xq_name');
+        $save['name'] = trim(input('name')," ");
+        $save['school'] = trim(input('school')," ");
+        $save['xq_name'] = trim(input('xq_name')," ");
         $save['pbfs'] = input('pbfs');
         $save['add_time'] = time();
         $res = db('venue')->insert($save);

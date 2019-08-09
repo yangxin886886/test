@@ -15,7 +15,7 @@ class Base extends Controller {
      * $code 错误码
      */
     public function saveAjaxReturn($res,$code = 401){
-        return $res > 0 ? $this->ajaxReturn() : $this->ajaxReturn([],$code,'失败');
+        return $res > 0 ? $this->ajaxReturn() : $this->ajaxReturn([],$code,'失败',false);
     }
 
     public function ajaxReturn($data = [],$code = 200,  $msg = '成功', $success = true){

@@ -8,8 +8,5 @@ class Test extends Controller {
         return $this->fetch();
     }
     public function test(){
-        $a = new \AlibabaCloudMes();
-        $a->sendSms('13436843356',1234);
-        dump($a->getRes());
     }
 }

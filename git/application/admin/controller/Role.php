@@ -119,5 +119,12 @@ class Role extends Base{
             : $this->ajaxReturn([],401,'失败');
     }
 
-
+    //设置管理员默认角色
+    public function setDefaultRole(){
+        $role_id = input('id');
+        $is_default_role = input('is_default_role') == 1 ? 0 :1;
+        //设置默认管理员
+        $res = db('role')->where('id',$role_id)->update(['is_default_role'=>$is_default_role]);
+        $this->saveAjaxReturn($res);
+    }
 }

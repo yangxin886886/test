@@ -32,6 +32,14 @@
       
         <table id="roleIndex" lay-filter="roleIndex"></table>
 
+        <script type="text/html" id="is_default_role">
+            {{#  if(d.is_default_role == 1){ }}
+            <a class="layui-btn " lay-event="is_default_role">是</a>
+            {{#  } else { }}
+            <a class="layui-btn layui-btn-danger" lay-event="is_default_role">否</a>
+            {{#  } }}
+        </script>
+
         <script type="text/html" id="table_curd">
           <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i>编辑</a>
           <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon layui-icon-delete"></i>删除</a>

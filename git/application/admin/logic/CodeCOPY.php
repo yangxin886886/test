@@ -21,7 +21,16 @@ class Code{
     public function __construct($weishu,$code_count,$no_arr = [],$no_arr_key = 'code'){
         $yu = 0;        //可为数字也可为字母
         $word_num = 0; //单词位数
-        $number = $weishu;   //数字位数
+        $number = 0;   //数字位数
+        if($weishu % 2 == 0){
+            $word_num  = $weishu / $this->ratio;
+            $number = $weishu / $this->ratio;
+        }
+        else if ($weishu % 2 == 1){
+            $word_num  = ($weishu -1) / $this->ratio;
+            $number = ($weishu -1) / $this->ratio;
+            $yu = 1;
+        }
 
         while (count($this->res) != $code_count){
             $code = $this->createCode($word_num,$number,$yu);
@@ -36,7 +45,6 @@ class Code{
         }
     }
 
-    //创建验证码
     public function createCode($word_num,$number,$yu){
         $str = '';
         for($i=1;$i<=$word_num;$i++){

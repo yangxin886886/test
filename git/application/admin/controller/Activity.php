@@ -136,4 +136,22 @@ class Activity extends Base{
         $this->assign('activity',$activity);
         return $this->fetch();
     }
+
+    //活动验证码
+    public function activityCodeView(){
+        $activity = db('activity')->where('user_id',$this->userInfo['id'])->select();
+        $this->assign('activity',$activity);
+        return $this->fetch();
+    }
+
+    public function getActivityCode(){
+        $activity_id = input('activity_id');
+        if(!$activity_id){
+            $this->ajaxReturn([],400,'activity_id错误',false);
+        }
+
+        $code = db('code')->where('activity_id',$activity_id)->select();
+        $this->ajaxReturn($code);
+
+    }
 }
