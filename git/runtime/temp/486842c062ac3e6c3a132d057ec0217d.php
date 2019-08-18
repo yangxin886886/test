@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"D:\phpstudy\PHPTutorial\wwww\git/application/admin\view\activity\index.html";i:1564566460;s:82:"D:\phpstudy\PHPTutorial\wwww\git\application\admin\view\public\head_resources.html";i:1563868278;s:84:"D:\phpstudy\PHPTutorial\wwww\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"D:\phpstudy\PHPTutorial\wwww\git/application/admin\view\activity\index.html";i:1566026025;s:82:"D:\phpstudy\PHPTutorial\wwww\git\application\admin\view\public\head_resources.html";i:1563868278;s:84:"D:\phpstudy\PHPTutorial\wwww\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 
 
 <!DOCTYPE html>
@@ -117,7 +117,8 @@
       ,cols: [[ //表头
         {field: 'id', title: 'ID', sort: true, fixed: 'left'}
         ,{field: 'name', title: '活动名称'}
-        ,{field: 'cg_name', title: '场馆名称'}
+        ,{field: 'school', title: '学校名称'}
+        ,{field: 'v_name', title: '场馆名称'}
         ,{field: 'a_start_time', title: '活动开始时间'}
         ,{field: 'a_end_time', title: '活动结束时间'}
         ,{field: 'x_start_time', title: '选座开始时间'}

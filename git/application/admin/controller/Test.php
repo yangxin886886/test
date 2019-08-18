@@ -8,5 +8,9 @@ class Test extends Controller {
         return $this->fetch();
     }
     public function test(){
+        $array = ['hello','world','cool','red'];
+        $first = array_shift($array);
+        dump($first);
+        dump($array);
     }
 }

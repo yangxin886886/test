@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"D:\phpstudy\PHPTutorial\wwww\git/application/admin\view\seat\edit_seat_view.html";i:1564639934;s:82:"D:\phpstudy\PHPTutorial\wwww\git\application\admin\view\public\head_resources.html";i:1563868278;s:84:"D:\phpstudy\PHPTutorial\wwww\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"D:\phpstudy\PHPTutorial\wwww\git/application/admin\view\seat\edit_seat_view.html";i:1565938209;s:82:"D:\phpstudy\PHPTutorial\wwww\git\application\admin\view\public\head_resources.html";i:1563868278;s:84:"D:\phpstudy\PHPTutorial\wwww\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 
 
 <!DOCTYPE html>
@@ -88,9 +88,7 @@
                 <select name="venue_id" lay-filter="venue" lay-verify="required" lay-search="">
                     <option value="">请选择</option>
                     <?php if(is_array($venue) || $venue instanceof \think\Collection || $venue instanceof \think\Paginator): $i = 0; $__LIST__ = $venue;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-
                         <option value="<?php echo $vo['id']; ?>" ><?php echo $vo['name']; ?></option>
-
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                 </select>
             </div>

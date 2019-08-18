@@ -10,7 +10,12 @@ class Activity extends Base{
      * 获取活动列表
     */
     public function getActivityList(){
-        $activity = db('activity')->where('user_id',$this->userInfo['id'])->select();
+        $activity = db('activity')
+            ->field('a.*,v.school,v.name as v_name')
+            ->alias('a')
+            ->join('venue v','a.venue_id = v.id')
+            ->where('a.user_id',$this->userInfo['id'])
+            ->select();
         $this->ajaxReturn($activity);
     }
 
@@ -110,6 +115,18 @@ class Activity extends Base{
         if(empty($id)){
             $this->ajaxReturn([],400,'id错误');
         }
+
+        //如果活动正在进行则无法删除
+        $current_time = date("Y-m-d H:i:s");
+        $where = [];
+        $where['id'] = $id;
+        $where['a_start_time'] = ['<= time',$current_time];
+        $where['a_end_time'] = ['>= time',$current_time];
+        $is_zzjx = db('activity')->where($where)->find();
+        if($is_zzjx){
+            $this->ajaxReturn([],400,'活动正在进行无法删除');
+        }
+
         $res = db('activity')->where('id',$id)->delete();
         return $res > 0 ? $this->ajaxReturn() : $this->ajaxReturn([],400,'失败');
     }
@@ -150,7 +167,7 @@ class Activity extends Base{
             $this->ajaxReturn([],400,'activity_id错误',false);
         }
 
-        $code = db('code')->where('activity_id',$activity_id)->select();
+        $code = db('code')->where('activity_id',$activity_id)->order('level','desc')->select();
         $this->ajaxReturn($code);
 
     }

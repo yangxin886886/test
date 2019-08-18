@@ -54,6 +54,18 @@ class User extends Controller {
             ->find();
 
         if(count($res) > 0){
+            //设置用户默认角色
+            $role_id = $this->setDefaultRole(); //json
+            if($role_id){
+                db('user')
+                    ->where('phone',$phone)
+                    ->where('is_super','neq',1)
+                    ->update(['role_id'=>$role_id]);
+            }
+            $res = db('user')
+                ->where('phone','eq',$phone)
+                ->find();
+
             $this->setUserInfo($res);
 
             $return = ['code'=>0,'msg'=>'成功','data'=>[]];
@@ -143,11 +155,6 @@ class User extends Controller {
             exit(json_encode($return));
         }
 
-        //设置用户默认角色
-        $role_id = $this->setDefaultRole();
-        if($role_id){
-            $add['role_id'] = $role_id;
-        }
 
         $res = db('user')->insert($add);
         if($res > 0){

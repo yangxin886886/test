@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:85:"D:\phpstudy\PHPTutorial\wwww\git/application/admin\view\venue\create_venue_style.html";i:1566008610;s:82:"D:\phpstudy\PHPTutorial\wwww\git\application\admin\view\public\head_resources.html";i:1563868278;s:84:"D:\phpstudy\PHPTutorial\wwww\git\application\admin\view\public\bottom_resources.html";i:1563266818;}*/ ?>
 
 
 <!DOCTYPE html>
@@ -8,7 +9,9 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <include file="public/head_resources" />
+  <link rel="stylesheet" href="/public/layuiadmin/layui/css/layui.css" media="all">
+<link rel="stylesheet" href="/public/layuiadmin/style/admin.css" media="all">
+<link rel="stylesheet" href="/public/layuiadmin/style/template.css" media="all">
   <style>
     .body-aa{
       background: #fff;
@@ -58,9 +61,9 @@
           <div class="layui-input-inline">
             <select name="venue_id" lay-filter="venue" lay-verify="required" lay-search="">
               <option value="">请选择</option>
-              <volist name="venue" id="vo">
-                <option value="{$vo.id}" >{$vo.name}</option>
-              </volist>
+              <?php if(is_array($venue) || $venue instanceof \think\Collection || $venue instanceof \think\Paginator): $i = 0; $__LIST__ = $venue;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                <option value="<?php echo $vo['id']; ?>" ><?php echo $vo['name']; ?></option>
+              <?php endforeach; endif; else: echo "" ;endif; ?>
             </select>
           </div>
         </div>
@@ -92,10 +95,12 @@
 </div>
 
 
-  <include file="public/bottom_resources" />
+  <script src="/public/layuiadmin/layui/layui.js"></script>
+<script src="/public/layuiadmin/js/jquery-3.1.1.min.js"></script>
+
   <script>
   layui.config({
-    base: '__PUBLIC__/layuiadmin/' //静态资源所在路径
+    base: '/public/layuiadmin/' //静态资源所在路径
   }).extend({
     index: 'lib/index' //主入口模块
   }).use(['index','form','admin'],function(){
@@ -109,7 +114,7 @@
       //layer.load();
       venue_id = data.value; //修改当前场馆id
       //获取场馆对应的区域
-      var get_venue_area = "{:url('Venue/getVenueArea')}";
+      var get_venue_area = "<?php echo url('Venue/getVenueArea'); ?>";
       admin.req({
         url:get_venue_area,
         data:{'venue_id':venue_id},

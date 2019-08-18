@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\phpstudy\PHPTutorial\wwww\git/application/admin\view\test\index.html";i:1565591817;}*/ ?>
 
 <!doctype html>
 <html>
@@ -51,8 +52,8 @@
 <div class="resize-item item2">
     你是我的小小狗
 </div>
-<script src="__PUBLIC__/static/jq/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src='__PUBLIC__/utils/div/jquery.ZResize.js'></script>
+<script src="/public/static/jq/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src='/public/utils/div/jquery.ZResize.js'></script>
 <script type="text/javascript">
     new ZResize();
 </script>

@@ -131,8 +131,8 @@ class  Activity extends Base{
         if(empty($activity_id)){
             $this->ajaxReturn([],400,'活动id错误');
         }
-        if(empty($fb_status)){
-            $this->ajaxReturn([],400,'发布状态错误');
+        if($fb_status != 1 && $fb_status != 0){
+            $this->ajaxReturn([],联想400,'发布状态错误');
         }
 
         $res = db('activity')
@@ -184,7 +184,7 @@ class  Activity extends Base{
 //        $school_where['school'] = ['like','%'.$school.'%'];
         $school_where['school'] = $school;
         if($venue_id){
-            $school_where['venue_id'] = $venue_id;
+            $school_where['id'] = $venue_id;
         }
         $is_school = db('venue')
             ->where($school_where)
@@ -197,12 +197,12 @@ class  Activity extends Base{
         $current_time = date("Y-m-d H:i:s");
         $where = [];
         if($venue_id){
-            $where['venue_id'] = $venue_id;
+            $where['a.venue_id'] = $venue_id;
         }
-        $where['a_start_time'] = ['<= time',$current_time];
-        $where['a_end_time'] = ['>= time',$current_time];
+        $where['a.a_start_time'] = ['<= time',$current_time];
+        $where['a.a_end_time'] = ['>= time',$current_time];
 //        $where['school'] = ['like','%'.$school.'%'];
-        $where['school'] = $school;
+        $where['v.school'] = $school;
         $activity = db('activity')
             ->field('a.*,count(r.activity_id) as reserve')
             ->alias('a')
@@ -244,7 +244,7 @@ class  Activity extends Base{
 //        $school_where['school'] = ['like','%'.$school.'%'];
         $school_where['school'] = $school;
         if($venue_id){
-            $school_where['venue_id'] = $venue_id;
+            $school_where['id'] = $venue_id;
         }
         $is_school = db('venue')
             ->where($school_where)
@@ -257,11 +257,11 @@ class  Activity extends Base{
         $current_time = date("Y-m-d H:i:s");
         $where = [];
         if($venue_id){
-            $where['venue_id'] = $venue_id;
+            $where['a.venue_id'] = $venue_id;
         }
-        $where['a_start_time'] = ['>= time',$current_time];
+        $where['a.a_start_time'] = ['>= time',$current_time];
 //        $where['school'] = ['like','%'.$school.'%'];
-        $where['school'] = $school;
+        $where['v.school'] = $school;
         $activity = db('activity')
             ->field('a.*,count(r.activity_id) as reserve')
             ->alias('a')
@@ -321,5 +321,31 @@ class  Activity extends Base{
             $this->ajaxReturn([],400,'暂无',false);
         }
         $this->ajaxReturn($venue);
+    }
+
+    //想看或者不想看某次活动
+    public function xinagkanActivity(){
+        $activity_id = input('activity_id');
+        $openid = input('openid');
+        if(!$activity_id){
+            $this->ajaxReturn([],400,'activity_id错误',false);
+        }
+        if(!$openid){
+            $this->ajaxReturn([],400,'openid错误',false);
+        }
+
+        $add = [];
+        $add['activity_id'] = $activity_id;
+        $add['openid'] = $openid;
+        $res = 0;
+        $is_xiangkan = db('activity_xiangkan')->where('openid',$openid)->find();
+        if($is_xiangkan){
+            //不想看
+            $res = db('activity_xiangkan')->where('openid',$openid)->delete();
+        }else{
+            //想看
+            $res = db('activity_xiangkan')->insert($add);
+        }
+        $this->saveAjaxReturn($res);
     }
 }

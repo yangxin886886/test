@@ -9,6 +9,37 @@ class Venue extends Base{
         return $this->fetch();
     }
 
+    /**
+     * 获取场馆的所有区域
+    */
+    public function getVenueArea(){
+        $venue_id = input('venue_id');
+        $storey = db('storey')
+            ->where('venue_id', $venue_id)
+            ->order('type', 'asc')
+            ->select();
+        if (!$storey) {
+            $this->ajaxReturn([], 808, '暂无楼层信息');
+        }
+
+        //获取区域
+        $storey_area = []; //楼层对应的区域[1: [["A"], ["B"]], 2: [["C"], ["D"]],…]
+        $area = require(ADMIN_MODULE . '/area/area.php'); //区域列表
+        foreach ($storey as $k=>$v){
+            $storey_area[$v['type']] = [];
+            $pai_area = json_decode($v['pai_area'], true);
+            foreach ($pai_area as $d => $dv) {
+                if (!empty($dv) && is_numeric(intval($dv))) {
+                    $storey_area[$v['type']][$d] =[];
+                    for ($j=0;$j<intval($dv);$j++){
+                        array_push( $storey_area[$v['type']][$d],array_shift($area));
+                    }
+                }
+            }
+        }
+        $this->ajaxReturn($storey_area);
+    }
+
     public function venueAdd(){
         $save['name'] = trim(input('name')," ");
         $save['school'] = trim(input('school')," ");
@@ -28,6 +59,8 @@ class Venue extends Base{
     }
 
     public function createVenueStyle(){
+        $venue = db('venue')->select();
+        $this->assign('venue', $venue);
         return $this->fetch();
     }
 
